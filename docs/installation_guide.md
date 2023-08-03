@@ -30,6 +30,7 @@ Requisitos de software:
 
 Abra o prompt de comando ou terminal do seu dispositivo, navegue até a pasta onde foi clonado o projeto e execute o comando a seguir:
 ``` bash
+docker build -t silvioricardo87/service--calculadoraimc .
 docker run -p 8080:8080 silvioricardo87/service--calculadoraimc
 ```
 
