@@ -8,15 +8,11 @@ import org.springframework.stereotype.Service;
 public class ImcUseCase {
 
   public Imc calcularImc(Double peso, Double altura) {
-    if(peso <= 0 || altura <= 0)
+    if (peso <= 0 || altura <= 0)
       throw new IllegalArgumentException("Peso e altura devem ser maiores que zero.");
 
-    Double imc = peso / (altura * altura);
-    imc = Math.round(imc * 100.0) / 100.0;
+    double imc = Math.round(peso / (altura * altura) * 100.0) / 100.0;
 
-    ImcClassificacao classificacao = ImcClassificacao.classificar(imc);
-
-    return new Imc(altura, peso, imc, classificacao);
+    return new Imc(altura, peso, imc, ImcClassificacao.classificar(imc));
   }
-
 }
